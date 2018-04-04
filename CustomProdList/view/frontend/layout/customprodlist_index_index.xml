@@ -1,0 +1,49 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+  xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# product: http://ogp.me/ns/product#">
+   <title>Wishlist Collection</title>
+   <meta name="description" content="I have created a wishlist on VURO.com and found it worth sharing. Now it’s your #TimeToWish."/>
+   <meta name="keywords" content="Wishlist, mywishlist,  VURO, 3D Printed Products, Shop for Quirky Season Gifts, Buy Unique Gifts online"/>
+   <!--  <meta property="og:image" content="https://www.vuro.com/pub/media/wysiwyg/vlogo.png" /> -->
+         <!-- <meta name="twitter:card" content="https://www.vuro.com/pub/media/wysiwyg/vuro_christmas.jpg">
+         <meta name="twitter:site" content="@Vuro3D">
+         <meta name="twitter:creator" content="@Vuro3D">
+         <meta name="twitter:title" content="Products I love | VURO.com">
+         <meta name="twitter:description" content="I have created a wishlist and share it with the world, now it's your #TimeToWish">
+           <meta name="twitter:image" content="https://www.vuro.com/pub/media/wysiwyg/vuro_christmas.jpg"> -->
+
+
+          </head>
+          <body>
+              <referenceBlock name="head.additional">
+              <block class="Praveen\CustomProdList\Block\Product\CustomList" name="opengraph.general" template="Magento_Catalog::product/general.phtml">
+                
+              </block>
+            </referenceBlock>
+            <referenceBlock name="page.main.title">
+             <action method="setPageTitle">
+              <argument translate="true" name="title" xsi:type="string">My Wishlist</argument>
+            </action>
+          </referenceBlock>
+          <referenceContainer name="content">
+            <block class="Praveen\CustomProdList\Block\Product\CustomList" name="custom.products.list" as="product_list" template="Magento_Catalog::product/sharewishlist.phtml">
+              <container name="category.product.list.additional" as="additional" />
+              <block class="Magento\Framework\View\Element\RendererList" name="category.product.type.details.renderers" as="details.renderers">
+                <block class="Magento\Framework\View\Element\Template" as="default"/>
+              </block>
+               <!--  <block class="Magento\Catalog\Block\Product\ProductList\Item\Container" name="category.product.addto" as="addto">
+                    <block class="Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare"
+                           name="category.product.addto.compare" as="compare"
+                           template="Magento_Catalog::product/list/addto/compare.phtml"/>
+                         </block> -->
+               <!--  <block class="Magento\Catalog\Block\Product\ProductList\Toolbar" name="product_list_toolbar" template="Magento_Catalog::product/list/toolbar.phtml">
+                    <block class="Magento\Theme\Block\Html\Pager" name="product_list_toolbar_pager"/>
+
+                  </block> -->
+               <!--  <action method="setToolbarBlockName">
+                    <argument name="name" xsi:type="string">product_list_toolbar</argument>
+                  </action> -->
+                </block>
+              </referenceContainer>
+            </body>
+          </page>
